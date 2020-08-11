@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AutoConfiguratorApp.Models.Auto
+{
+    public class AutoModell : EntityBase
+    {
+        [Key]
+        [Required]
+        public int AutoModellId { get; set; }
+
+        [Required]
+        [MaxLength(30)]
+        public string ModelName { get; set; }
+
+        [Required]
+        [ForeignKey("Hersteller")]
+        public int HerstellerRefId { get; set; }
+        public Hersteller Hersteller { get; set; }
+
+        public ICollection<AutoModell_Motor> AutoModell_Motors { get; set; }
+        public ICollection<AutoModell_Felge> AutoModell_Felges { get; set; }
+        public ICollection<AutoModell_Lackierung> AutoModell_Lackierungs { get; set; }
+
+    }
+}

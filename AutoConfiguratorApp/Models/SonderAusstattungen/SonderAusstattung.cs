@@ -8,33 +8,32 @@ namespace AutoConfiguratorApp.Models.SonderAusstattungen
     {
         [Key]
         [Required]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
-        [Required]
+        
         [ForeignKey("IdRef_FSS")]
-        private FahrSicherheitsSystem FahrSicherheitsSystem { get; set; }
+        public FahrSicherheitsSystem FahrSicherheitsSystem { get; set; }
 
-        [Required]
+        
         [ForeignKey("IdRef_KA")]
-        private KlimaAnlage KlimaAnlage { get; set; }
+        public KlimaAnlage KlimaAnlage { get; set; }
 
-        [Required]
+        
         [ForeignKey("IdRef_NS")]
-        private NavigationsSystem NavigationsSystem { get; set; }
+        public NavigationsSystem NavigationsSystem { get; set; }
 
-        [Required]
+        
         [ForeignKey("IdRef_PA")]
-        private ParkAssistent ParkAssistent { get; set; }
+        public ParkAssistentSystem ParkAssistent { get; set; }
 
-        [Required]
         [ForeignKey("IdRef_SS")]
-        private SoundSystem SoundSystem { get; set; }
+        public SoundSystem SoundSystem { get; set; }
 
         [Required]
-        private DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Required]
-        private DateTime UpdateAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
     }
 }

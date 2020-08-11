@@ -29,14 +29,15 @@ namespace AutoConfiguratorApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
-            var builder = new NpgsqlConnectionStringBuilder();
-            builder.ConnectionString =
-                Configuration.GetConnectionString("PostgreSqlConnection");
-            builder.Username = Configuration["UserID"];
-            builder.Password = Configuration["Password"];
-            
-            services.AddDbContext<AcDbContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection"),
+                Username = Configuration["postgres"],
+                Password = Configuration["Password"]
+            };
+
+            services.AddDbContext<AkDbContext>(opt => opt.UseNpgsql(builder.ConnectionString));
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             //{
@@ -54,7 +55,7 @@ namespace AutoConfiguratorApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AcDbContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AkDbContext context)
         {
             context.Database.Migrate();
             if (env.IsDevelopment())

@@ -7,19 +7,19 @@ namespace AutoConfiguratorApp.Models.Auto
     {
         [Key]
         [Required]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        private string name { get; set; }
+        public string Model{ get; set; }
 
         [Required]
-        private int Motorleistung { get; set; }
+        public int Leistung { get; set; }
 
         [Required]
-        private DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Required]
-        private DateTime UpdateAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 
 }

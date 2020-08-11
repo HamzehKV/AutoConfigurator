@@ -5,18 +5,19 @@ using AutoConfiguratorApp.Models.Auto;
 
 namespace AutoConfiguratorApp.Models
 {
-    public class AutoConfiguration
+    public class AutoKonfiguration
     {
         [Key]
         [Required]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [ForeignKey("IdRef_AM_M")]
-        private AutoModel AutoModel { get; set; }
+        public AutoModell AutoModel { get; set; }
 
-        [Required]
-        private string ConfigUri { get; set; }
+        //[Required]
+        //[ForeignKey("IdRef_AM_F")]
+        //public 
 
         [Required]
         private DateTime CreatedAt { get; set; }

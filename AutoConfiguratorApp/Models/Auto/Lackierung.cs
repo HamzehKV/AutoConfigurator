@@ -7,18 +7,17 @@ namespace AutoConfiguratorApp.Models.Auto
     {
         [Key]
         [Required]
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        private string Name { get; set; }
+        public string Name { get; set; }
+
+        public int Code { get; set; }
 
         [Required]
-        private int Code { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [Required]
-        private DateTime CreatedAt { get; set; }
-
-        [Required]
-        private DateTime UpdateAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
