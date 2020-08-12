@@ -9,12 +9,12 @@ namespace AutoConfiguratorApp.Migrations
 {
     // We now want to ensure that when we update our database via code first migrations  our CreatedDate and ModifiedDate properties gets a default value of NOW() utc Datetime. 
     // To that end, I defined a custom Migration class specific to PostgreSql to add the default values when performing AddColumn and CreateTable operations.
-    
-    class CustomNpgsqlMigrationsSqlGenerator : NpgsqlMigrationsSqlGenerator
+
+    internal class CustomNpgsqlMigrationsSqlGenerator : NpgsqlMigrationsSqlGenerator
     {
         public CustomNpgsqlMigrationsSqlGenerator(
             MigrationsSqlGeneratorDependencies dependencies,
-            IMigrationsAnnotationProvider migrationsAnnotations, 
+            IMigrationsAnnotationProvider migrationsAnnotations,
             INpgsqlOptions npgsqlOptions)
             : base(dependencies, migrationsAnnotations, npgsqlOptions)
         {

@@ -13,7 +13,5 @@ namespace AutoConfiguratorApp.Models.Auto
         public string Name { get; set; }
 
         public int Code { get; set; }
-
-        //public ICollection<AutoModell_Lackierung> AutoModell_Lackierungs { get; set; }
     }
 }

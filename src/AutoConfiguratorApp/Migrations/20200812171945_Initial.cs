@@ -93,7 +93,7 @@ namespace AutoConfiguratorApp.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
-                    Model = table.Column<string>(nullable: false),
+                    Model = table.Column<string>(nullable: true),
                     Leistung = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -323,6 +323,15 @@ namespace AutoConfiguratorApp.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "FahrSicherheitsSysteme",
+                columns: new[] { "FahrSicherheitsSystemId", "Name" },
+                values: new object[,]
+                {
+                    { 6100, "FSS1" },
+                    { 6101, "FSS2" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Felgen",
                 columns: new[] { "FelgeId", "Material", "Size" },
                 values: new object[,]
@@ -339,13 +348,79 @@ namespace AutoConfiguratorApp.Migrations
                 columns: new[] { "HerstellerId", "Name" },
                 values: new object[,]
                 {
-                    { 100, "LandRover" },
-                    { 101, "Porsche" },
-                    { 102, "Tesla" },
-                    { 103, "AUDI" },
+                    { 106, "VW" },
                     { 104, "MercedesBenz" },
                     { 105, "BMW" },
-                    { 106, "VW" }
+                    { 102, "Tesla" },
+                    { 101, "Porsche" },
+                    { 100, "LandRover" },
+                    { 103, "AUDI" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "KlimaAnlagen",
+                columns: new[] { "KlimaAnlageId", "Name" },
+                values: new object[,]
+                {
+                    { 6201, "KA2" },
+                    { 6200, "KA1" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Lackierungen",
+                columns: new[] { "LackierungId", "Code", "Name" },
+                values: new object[,]
+                {
+                    { 410, 0, "Gold" },
+                    { 413, 0, "Azurblau" },
+                    { 412, 0, "Cyan" },
+                    { 411, 0, "Gelb" },
+                    { 409, 0, "Oliv" },
+                    { 406, 0, "Orange" },
+                    { 407, 0, "Blau" },
+                    { 405, 0, "Braun" },
+                    { 404, 0, "Rot" },
+                    { 403, 0, "Gruen" },
+                    { 402, 0, "Schwarz" },
+                    { 401, 0, "Grau" },
+                    { 400, 0, "Weiss" },
+                    { 408, 0, "Silber" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Motoren",
+                columns: new[] { "MotorId", "Leistung", "Model" },
+                values: new object[,]
+                {
+                    { 500, 250, null },
+                    { 501, 550, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "NavigationsSysteme",
+                columns: new[] { "NavigationsSystemId", "Model" },
+                values: new object[,]
+                {
+                    { 6300, "NS1" },
+                    { 6301, "NS2" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ParkAssistentSysteme",
+                columns: new[] { "ParkAssistentSystemId", "Model" },
+                values: new object[,]
+                {
+                    { 6400, "PAS1" },
+                    { 6401, "PAS2" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SoundSysteme",
+                columns: new[] { "SoundSystemId", "Model" },
+                values: new object[,]
+                {
+                    { 6500, "SS1" },
+                    { 6501, "SS2" }
                 });
 
             migrationBuilder.InsertData(
@@ -353,25 +428,118 @@ namespace AutoConfiguratorApp.Migrations
                 columns: new[] { "AutoModellId", "Hersteller_RefId", "ModelName" },
                 values: new object[,]
                 {
-                    { 200, 100, "RangeRover" },
-                    { 215, 105, "8er" },
-                    { 214, 104, "G-Klasse" },
-                    { 213, 104, "GLE" },
-                    { 212, 104, "AMG GT" },
-                    { 211, 103, "RS7" },
-                    { 210, 103, "R8" },
-                    { 209, 103, "RSQ8" },
-                    { 208, 102, "Model 3" },
-                    { 207, 102, "Model S" },
-                    { 206, 102, "Model X" },
-                    { 205, 101, "Macan" },
-                    { 204, 101, "Cayenne" },
-                    { 203, 101, "911" },
-                    { 202, 100, "RangeRover Velar" },
+                    { 200, 100, "RangeRover Velar" },
                     { 201, 100, "RangeRover Sport" },
-                    { 216, 105, "X6" },
-                    { 217, 105, "7er" }
+                    { 202, 101, "911" },
+                    { 203, 101, "Cayenne" },
+                    { 204, 102, "Model S" },
+                    { 205, 102, "Model X" },
+                    { 206, 103, "RS7" },
+                    { 207, 103, "RSQ8" },
+                    { 208, 104, "AMG GT" },
+                    { 209, 104, "GLE" },
+                    { 210, 105, "8er" },
+                    { 211, 105, "X6" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "AutoModelle_Felgen",
+                columns: new[] { "AutoModell_FelgeId", "AutoModellRefId", "FelgeRefId" },
+                values: new object[,]
+                {
+                    { 23000, 200, 301 },
+                    { 23026, 208, 300 },
+                    { 23032, 210, 300 },
+                    { 23015, 204, 300 },
+                    { 23016, 204, 301 },
+                    { 23031, 209, 304 },
+                    { 23030, 209, 303 },
+                    { 23017, 205, 301 },
+                    { 23018, 205, 302 },
+                    { 23013, 203, 303 },
+                    { 23019, 205, 303 },
+                    { 23029, 209, 302 },
+                    { 23021, 206, 302 },
+                    { 23022, 206, 303 },
+                    { 23028, 208, 302 },
+                    { 23027, 208, 301 },
+                    { 23023, 207, 302 },
+                    { 23024, 207, 303 },
+                    { 23025, 207, 304 },
+                    { 23020, 205, 304 },
+                    { 23012, 203, 302 },
+                    { 23014, 203, 304 },
+                    { 23033, 210, 301 },
+                    { 23001, 200, 302 },
+                    { 23002, 200, 303 },
+                    { 23003, 200, 304 },
+                    { 23038, 211, 304 },
+                    { 23037, 211, 303 },
+                    { 23036, 211, 302 },
+                    { 23004, 201, 301 },
+                    { 23005, 201, 302 },
+                    { 23011, 203, 301 },
+                    { 23007, 201, 304 },
+                    { 23006, 201, 303 },
+                    { 23008, 202, 300 },
+                    { 23009, 202, 301 },
+                    { 23010, 202, 302 },
+                    { 23034, 210, 302 },
+                    { 23035, 211, 301 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AutoModelle_Lackierungen",
+                columns: new[] { "AutoModell_LackierungId", "AutoModellRefId", "LackierungRefId" },
+                values: new object[,]
+                {
+                    { 240032, 210, 405 },
+                    { 240031, 210, 402 },
+                    { 240027, 209, 400 },
+                    { 240026, 208, 413 },
+                    { 240025, 208, 402 },
+                    { 240028, 209, 401 },
+                    { 240024, 208, 400 },
+                    { 240029, 209, 407 },
+                    { 240033, 211, 400 },
+                    { 240030, 210, 401 },
+                    { 240023, 207, 403 },
+                    { 240015, 205, 400 },
+                    { 240021, 207, 400 },
+                    { 24000, 200, 400 },
+                    { 24001, 200, 402 },
+                    { 24002, 200, 405 },
+                    { 24003, 201, 400 },
+                    { 24004, 201, 401 },
+                    { 24005, 201, 409 },
+                    { 24006, 202, 400 },
+                    { 24007, 202, 404 },
+                    { 24008, 202, 407 },
+                    { 240022, 207, 410 },
+                    { 24009, 203, 402 },
+                    { 240011, 203, 407 },
+                    { 240012, 204, 400 },
+                    { 240013, 204, 401 },
+                    { 240014, 204, 402 },
+                    { 240034, 211, 402 },
+                    { 240016, 205, 402 },
+                    { 240017, 205, 404 },
+                    { 240018, 206, 400 },
+                    { 240019, 206, 401 },
+                    { 240020, 206, 412 },
+                    { 240010, 203, 403 },
+                    { 240035, 211, 409 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AutoModelle_Motoren",
+                columns: new[] { "AutoModell_MotorId", "AutoModellRefId", "MotorRefId" },
+                values: new object[] { 25000, 200, 501 });
+
+            migrationBuilder.InsertData(
+                table: "AutoKonfigurationen",
+                columns: new[] { "AutoKonfigurationId", "AM_F_RefId", "AM_L_RefId", "AM_M_RefId", "FSS_RefId", "KA_RefId", "NS_RefId", "PAS_RefId", "SS_RefId" },
+                values: new object[] { 700000, 23003, 24002, 25000, 6100, 6200, 6300, 6400, 6500 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AutoKonfigurationen_AM_F_RefId",

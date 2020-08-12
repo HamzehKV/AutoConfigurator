@@ -17,8 +17,5 @@ namespace AutoConfiguratorApp.Models.Auto
 
         [Column(Order = 2)]
         public string Material { get; set; }
-
-        //public ICollection<AutoModell_Felge> AutoModell_Felges { get; set; }
-
     }
 }
