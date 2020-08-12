@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutoConfiguratorApp.Migrations
 {
     [DbContext(typeof(AkDbContext))]
-    [Migration("20200811170741_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200812085730_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,7 @@ namespace AutoConfiguratorApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("HerstellerRefId")
+                    b.Property<int>("Hersteller_RefId")
                         .HasColumnType("integer");
 
                     b.Property<string>("ModelName")
@@ -46,7 +46,7 @@ namespace AutoConfiguratorApp.Migrations
 
                     b.HasKey("AutoModellId");
 
-                    b.HasIndex("HerstellerRefId");
+                    b.HasIndex("Hersteller_RefId");
 
                     b.ToTable("AutoModellen");
 
@@ -55,7 +55,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 200,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 100,
+                            Hersteller_RefId = 100,
                             ModelName = "RangeRover",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -63,7 +63,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 201,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 100,
+                            Hersteller_RefId = 100,
                             ModelName = "RangeRover Sport",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -71,7 +71,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 202,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 100,
+                            Hersteller_RefId = 100,
                             ModelName = "RangeRover Velar",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -79,7 +79,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 203,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 101,
+                            Hersteller_RefId = 101,
                             ModelName = "911",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -87,7 +87,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 204,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 101,
+                            Hersteller_RefId = 101,
                             ModelName = "Cayenne",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -95,7 +95,7 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 205,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 101,
+                            Hersteller_RefId = 101,
                             ModelName = "Macan",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -103,71 +103,95 @@ namespace AutoConfiguratorApp.Migrations
                         {
                             AutoModellId = 206,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 102,
-                            ModelName = "RSQ8",
+                            Hersteller_RefId = 102,
+                            ModelName = "Model X",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 207,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 102,
-                            ModelName = "R8",
+                            Hersteller_RefId = 102,
+                            ModelName = "Model S",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 208,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 102,
-                            ModelName = "RS7",
+                            Hersteller_RefId = 102,
+                            ModelName = "Model 3",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 209,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 103,
-                            ModelName = "AMG GT",
+                            Hersteller_RefId = 103,
+                            ModelName = "RSQ8",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 210,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 103,
-                            ModelName = "GLE",
+                            Hersteller_RefId = 103,
+                            ModelName = "R8",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 211,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 103,
-                            ModelName = "G-Klasse",
+                            Hersteller_RefId = 103,
+                            ModelName = "RS7",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 212,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 104,
-                            ModelName = "8er",
+                            Hersteller_RefId = 104,
+                            ModelName = "AMG GT",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 213,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 104,
-                            ModelName = "X6",
+                            Hersteller_RefId = 104,
+                            ModelName = "GLE",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             AutoModellId = 214,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            HerstellerRefId = 104,
+                            Hersteller_RefId = 104,
+                            ModelName = "G-Klasse",
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            AutoModellId = 215,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Hersteller_RefId = 105,
+                            ModelName = "8er",
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            AutoModellId = 216,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Hersteller_RefId = 105,
+                            ModelName = "X6",
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            AutoModellId = 217,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Hersteller_RefId = 105,
                             ModelName = "7er",
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -180,14 +204,14 @@ namespace AutoConfiguratorApp.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("AutoModellId")
+                    b.Property<int>("AutoModellRefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("FelgeId")
+                    b.Property<int>("FelgeRefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -196,9 +220,9 @@ namespace AutoConfiguratorApp.Migrations
 
                     b.HasKey("AutoModell_FelgeId");
 
-                    b.HasIndex("AutoModellId");
+                    b.HasIndex("AutoModellRefId");
 
-                    b.HasIndex("FelgeId");
+                    b.HasIndex("FelgeRefId");
 
                     b.ToTable("AutoModelle_Felgen");
                 });
@@ -210,14 +234,14 @@ namespace AutoConfiguratorApp.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("AutoModellId")
+                    b.Property<int>("AutoModellRefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("LackierungId")
+                    b.Property<int>("LackierungRefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("ModifiedDate")
@@ -226,9 +250,9 @@ namespace AutoConfiguratorApp.Migrations
 
                     b.HasKey("AutoModell_LackierungId");
 
-                    b.HasIndex("AutoModellId");
+                    b.HasIndex("AutoModellRefId");
 
-                    b.HasIndex("LackierungId");
+                    b.HasIndex("LackierungRefId");
 
                     b.ToTable("AutoModelle_Lackierungen");
                 });
@@ -240,7 +264,7 @@ namespace AutoConfiguratorApp.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("AutoModellId")
+                    b.Property<int>("AutoModellRefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
@@ -251,14 +275,14 @@ namespace AutoConfiguratorApp.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("MotorId")
+                    b.Property<int>("MotorRefId")
                         .HasColumnType("integer");
 
                     b.HasKey("AutoModell_MotorId");
 
-                    b.HasIndex("AutoModellId");
+                    b.HasIndex("AutoModellRefId");
 
-                    b.HasIndex("MotorId");
+                    b.HasIndex("MotorRefId");
 
                     b.ToTable("AutoModelle_Motoren");
                 });
@@ -369,25 +393,32 @@ namespace AutoConfiguratorApp.Migrations
                             HerstellerId = 102,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "AUDI"
+                            Name = "Tesla"
                         },
                         new
                         {
                             HerstellerId = 103,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "MercedesBenz"
+                            Name = "AUDI"
                         },
                         new
                         {
                             HerstellerId = 104,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "BMW"
+                            Name = "MercedesBenz"
                         },
                         new
                         {
                             HerstellerId = 105,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "BMW"
+                        },
+                        new
+                        {
+                            HerstellerId = 106,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "VW"
@@ -455,58 +486,55 @@ namespace AutoConfiguratorApp.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int>("AM_F_RefId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("AM_L_RefId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("AM_M_RefId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("IdRefFSS")
+                    b.Property<int?>("FSS_RefId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("IdRefKA")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRefNS")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRefPAS")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRefSS")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRef_AM_F")
-                        .IsRequired()
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRef_AM_L")
-                        .IsRequired()
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("IdRef_AM_M")
-                        .IsRequired()
+                    b.Property<int?>("KA_RefId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("ModifiedDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("NS_RefId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("PAS_RefId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("SS_RefId")
+                        .HasColumnType("integer");
+
                     b.HasKey("AutoKonfigurationId");
 
-                    b.HasIndex("IdRefFSS");
+                    b.HasIndex("AM_F_RefId");
 
-                    b.HasIndex("IdRefKA");
+                    b.HasIndex("AM_L_RefId");
 
-                    b.HasIndex("IdRefNS");
+                    b.HasIndex("AM_M_RefId");
 
-                    b.HasIndex("IdRefPAS");
+                    b.HasIndex("FSS_RefId");
 
-                    b.HasIndex("IdRefSS");
+                    b.HasIndex("KA_RefId");
 
-                    b.HasIndex("IdRef_AM_F");
+                    b.HasIndex("NS_RefId");
 
-                    b.HasIndex("IdRef_AM_L");
+                    b.HasIndex("PAS_RefId");
 
-                    b.HasIndex("IdRef_AM_M");
+                    b.HasIndex("SS_RefId");
 
                     b.ToTable("AutoKonfigurationen");
                 });
@@ -635,7 +663,7 @@ namespace AutoConfiguratorApp.Migrations
                 {
                     b.HasOne("AutoConfiguratorApp.Models.Auto.Hersteller", "Hersteller")
                         .WithMany()
-                        .HasForeignKey("HerstellerRefId")
+                        .HasForeignKey("Hersteller_RefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -643,14 +671,14 @@ namespace AutoConfiguratorApp.Migrations
             modelBuilder.Entity("AutoConfiguratorApp.Models.Auto.AutoModell_Felge", b =>
                 {
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell", "AutoModell")
-                        .WithMany("AutoModell_Felges")
-                        .HasForeignKey("AutoModellId")
+                        .WithMany()
+                        .HasForeignKey("AutoModellRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoConfiguratorApp.Models.Auto.Felge", "Felge")
-                        .WithMany("AutoModell_Felges")
-                        .HasForeignKey("FelgeId")
+                        .WithMany()
+                        .HasForeignKey("FelgeRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -658,14 +686,14 @@ namespace AutoConfiguratorApp.Migrations
             modelBuilder.Entity("AutoConfiguratorApp.Models.Auto.AutoModell_Lackierung", b =>
                 {
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell", "AutoModell")
-                        .WithMany("AutoModell_Lackierungs")
-                        .HasForeignKey("AutoModellId")
+                        .WithMany()
+                        .HasForeignKey("AutoModellRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoConfiguratorApp.Models.Auto.Lackierung", "Lackierung")
-                        .WithMany("AutoModell_Lackierungs")
-                        .HasForeignKey("LackierungId")
+                        .WithMany()
+                        .HasForeignKey("LackierungRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -673,57 +701,57 @@ namespace AutoConfiguratorApp.Migrations
             modelBuilder.Entity("AutoConfiguratorApp.Models.Auto.AutoModell_Motor", b =>
                 {
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell", "AutoModell")
-                        .WithMany("AutoModell_Motors")
-                        .HasForeignKey("AutoModellId")
+                        .WithMany()
+                        .HasForeignKey("AutoModellRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoConfiguratorApp.Models.Auto.Motor", "Motor")
-                        .WithMany("AutoModell_Motors")
-                        .HasForeignKey("MotorId")
+                        .WithMany()
+                        .HasForeignKey("MotorRefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("AutoConfiguratorApp.Models.AutoKonfiguration", b =>
                 {
-                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.FahrSicherheitsSystem", "FahrSicherheitsSystem")
-                        .WithMany()
-                        .HasForeignKey("IdRefFSS");
-
-                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.KlimaAnlage", "KlimaAnlage")
-                        .WithMany()
-                        .HasForeignKey("IdRefKA");
-
-                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.NavigationsSystem", "NavigationsSystem")
-                        .WithMany()
-                        .HasForeignKey("IdRefNS");
-
-                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.ParkAssistentSystem", "ParkAssistentSystem")
-                        .WithMany()
-                        .HasForeignKey("IdRefPAS");
-
-                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.SoundSystem", "SoundSystem")
-                        .WithMany()
-                        .HasForeignKey("IdRefSS");
-
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell_Felge", "AutoModell_Felge")
                         .WithMany()
-                        .HasForeignKey("IdRef_AM_F")
+                        .HasForeignKey("AM_F_RefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell_Lackierung", "AutoModell_Lackierung")
                         .WithMany()
-                        .HasForeignKey("IdRef_AM_L")
+                        .HasForeignKey("AM_L_RefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AutoConfiguratorApp.Models.Auto.AutoModell_Motor", "AutoModell_Motor")
                         .WithMany()
-                        .HasForeignKey("IdRef_AM_M")
+                        .HasForeignKey("AM_M_RefId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.FahrSicherheitsSystem", "FahrSicherheitsSystem")
+                        .WithMany()
+                        .HasForeignKey("FSS_RefId");
+
+                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.KlimaAnlage", "KlimaAnlage")
+                        .WithMany()
+                        .HasForeignKey("KA_RefId");
+
+                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.NavigationsSystem", "NavigationsSystem")
+                        .WithMany()
+                        .HasForeignKey("NS_RefId");
+
+                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.ParkAssistentSystem", "ParkAssistentSystem")
+                        .WithMany()
+                        .HasForeignKey("PAS_RefId");
+
+                    b.HasOne("AutoConfiguratorApp.Models.SonderAusstattungen.SoundSystem", "SoundSystem")
+                        .WithMany()
+                        .HasForeignKey("SS_RefId");
                 });
 #pragma warning restore 612, 618
         }

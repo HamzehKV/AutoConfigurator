@@ -15,7 +15,7 @@ namespace AutoConfiguratorApp.Models.Auto
         [Required]
         public int Leistung { get; set; }
 
-        public ICollection<AutoModell_Motor> AutoModell_Motors { get; set; }
+        //public ICollection<AutoModell_Motor> AutoModell_Motors { get; set; }
     }
 
 }

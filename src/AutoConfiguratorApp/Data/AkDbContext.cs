@@ -38,32 +38,37 @@ namespace AutoConfiguratorApp.Data
         public DbSet<AutoModell_Lackierung> AutoModelle_Lackierungen { get; set; }
         public DbSet<AutoModell_Motor> AutoModelle_Motoren { get; set; }
 
+        // Data seeding
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Hersteller>().HasData(
                 new Hersteller { HerstellerId = 100, Name = "LandRover" },
                 new Hersteller { HerstellerId = 101, Name = "Porsche" },
-                new Hersteller { HerstellerId = 102, Name = "AUDI" },
-                new Hersteller { HerstellerId = 103, Name = "MercedesBenz" },
-                new Hersteller { HerstellerId = 104, Name = "BMW" },
-                new Hersteller { HerstellerId = 105, Name = "VW" }
+                new Hersteller { HerstellerId = 102, Name = "Tesla" },
+                new Hersteller { HerstellerId = 103, Name = "AUDI" },
+                new Hersteller { HerstellerId = 104, Name = "MercedesBenz" },
+                new Hersteller { HerstellerId = 105, Name = "BMW" },
+                new Hersteller { HerstellerId = 106, Name = "VW" }
             );
             modelBuilder.Entity<AutoModell>().HasData(
-                new AutoModell { AutoModellId = 200, HerstellerRefId = 100, ModelName = "RangeRover" },
-                new AutoModell { AutoModellId = 201, HerstellerRefId = 100, ModelName = "RangeRover Sport" },
-                new AutoModell { AutoModellId = 202, HerstellerRefId = 100, ModelName = "RangeRover Velar" },
-                new AutoModell { AutoModellId = 203, HerstellerRefId = 101, ModelName = "911" },
-                new AutoModell { AutoModellId = 204, HerstellerRefId = 101, ModelName = "Cayenne" },
-                new AutoModell { AutoModellId = 205, HerstellerRefId = 101, ModelName = "Macan" },
-                new AutoModell { AutoModellId = 206, HerstellerRefId = 102, ModelName = "RSQ8" },
-                new AutoModell { AutoModellId = 207, HerstellerRefId = 102, ModelName = "R8" },
-                new AutoModell { AutoModellId = 208, HerstellerRefId = 102, ModelName = "RS7" },
-                new AutoModell { AutoModellId = 209, HerstellerRefId = 103, ModelName = "AMG GT" },
-                new AutoModell { AutoModellId = 210, HerstellerRefId = 103, ModelName = "GLE" },
-                new AutoModell { AutoModellId = 211, HerstellerRefId = 103, ModelName = "G-Klasse" },
-                new AutoModell { AutoModellId = 212, HerstellerRefId = 104, ModelName = "8er" },
-                new AutoModell { AutoModellId = 213, HerstellerRefId = 104, ModelName = "X6" },
-                new AutoModell { AutoModellId = 214, HerstellerRefId = 104, ModelName = "7er" }
+                new AutoModell { AutoModellId = 200, Hersteller_RefId = 100, ModelName = "RangeRover" },
+                new AutoModell { AutoModellId = 201, Hersteller_RefId = 100, ModelName = "RangeRover Sport" },
+                new AutoModell { AutoModellId = 202, Hersteller_RefId = 100, ModelName = "RangeRover Velar" },
+                new AutoModell { AutoModellId = 203, Hersteller_RefId = 101, ModelName = "911" },
+                new AutoModell { AutoModellId = 204, Hersteller_RefId = 101, ModelName = "Cayenne" },
+                new AutoModell { AutoModellId = 205, Hersteller_RefId = 101, ModelName = "Macan" },
+                new AutoModell { AutoModellId = 206, Hersteller_RefId = 102, ModelName = "Model X" },
+                new AutoModell { AutoModellId = 207, Hersteller_RefId = 102, ModelName = "Model S" },
+                new AutoModell { AutoModellId = 208, Hersteller_RefId = 102, ModelName = "Model 3" },
+                new AutoModell { AutoModellId = 209, Hersteller_RefId = 103, ModelName = "RSQ8" },
+                new AutoModell { AutoModellId = 210, Hersteller_RefId = 103, ModelName = "R8" },
+                new AutoModell { AutoModellId = 211, Hersteller_RefId = 103, ModelName = "RS7" },
+                new AutoModell { AutoModellId = 212, Hersteller_RefId = 104, ModelName = "AMG GT" },
+                new AutoModell { AutoModellId = 213, Hersteller_RefId = 104, ModelName = "GLE" },
+                new AutoModell { AutoModellId = 214, Hersteller_RefId = 104, ModelName = "G-Klasse" },
+                new AutoModell { AutoModellId = 215, Hersteller_RefId = 105, ModelName = "8er" },
+                new AutoModell { AutoModellId = 216, Hersteller_RefId = 105, ModelName = "X6" },
+                new AutoModell { AutoModellId = 217, Hersteller_RefId = 105, ModelName = "7er" }
             );
             
             modelBuilder.Entity<Felge>().HasData(

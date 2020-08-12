@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AutoConfiguratorApp.Models.Auto
 {
@@ -9,13 +10,13 @@ namespace AutoConfiguratorApp.Models.Auto
         public int AutoModell_LackierungId { get; set; }
 
         [Required]
-        //[ForeignKey("IdRefAutoModell")]
-        public int AutoModellId { get; set; }
+        [ForeignKey("AutoModell")]
+        public int AutoModellRefId { get; set; }
         public AutoModell AutoModell { get; set; }
 
         [Required]
-        //[ForeignKey("IdRefLackierung")]
-        public int LackierungId { get; set; }
+        [ForeignKey("Lackierung")]
+        public int LackierungRefId { get; set; }
         public Lackierung Lackierung { get; set; }
     }
 }

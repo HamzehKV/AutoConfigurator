@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AutoConfiguratorApp.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -155,14 +155,14 @@ namespace AutoConfiguratorApp.Migrations
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
                     ModelName = table.Column<string>(maxLength: 30, nullable: false),
-                    HerstellerRefId = table.Column<int>(nullable: false)
+                    Hersteller_RefId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AutoModellen", x => x.AutoModellId);
                     table.ForeignKey(
-                        name: "FK_AutoModellen_Hersteller_HerstellerRefId",
-                        column: x => x.HerstellerRefId,
+                        name: "FK_AutoModellen_Hersteller_Hersteller_RefId",
+                        column: x => x.Hersteller_RefId,
                         principalTable: "Hersteller",
                         principalColumn: "HerstellerId",
                         onDelete: ReferentialAction.Cascade);
@@ -176,21 +176,21 @@ namespace AutoConfiguratorApp.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
-                    AutoModellId = table.Column<int>(nullable: false),
-                    FelgeId = table.Column<int>(nullable: false)
+                    AutoModellRefId = table.Column<int>(nullable: false),
+                    FelgeRefId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AutoModelle_Felgen", x => x.AutoModell_FelgeId);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Felgen_AutoModellen_AutoModellId",
-                        column: x => x.AutoModellId,
+                        name: "FK_AutoModelle_Felgen_AutoModellen_AutoModellRefId",
+                        column: x => x.AutoModellRefId,
                         principalTable: "AutoModellen",
                         principalColumn: "AutoModellId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Felgen_Felgen_FelgeId",
-                        column: x => x.FelgeId,
+                        name: "FK_AutoModelle_Felgen_Felgen_FelgeRefId",
+                        column: x => x.FelgeRefId,
                         principalTable: "Felgen",
                         principalColumn: "FelgeId",
                         onDelete: ReferentialAction.Cascade);
@@ -204,21 +204,21 @@ namespace AutoConfiguratorApp.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
-                    AutoModellId = table.Column<int>(nullable: false),
-                    LackierungId = table.Column<int>(nullable: false)
+                    AutoModellRefId = table.Column<int>(nullable: false),
+                    LackierungRefId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AutoModelle_Lackierungen", x => x.AutoModell_LackierungId);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Lackierungen_AutoModellen_AutoModellId",
-                        column: x => x.AutoModellId,
+                        name: "FK_AutoModelle_Lackierungen_AutoModellen_AutoModellRefId",
+                        column: x => x.AutoModellRefId,
                         principalTable: "AutoModellen",
                         principalColumn: "AutoModellId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Lackierungen_Lackierungen_LackierungId",
-                        column: x => x.LackierungId,
+                        name: "FK_AutoModelle_Lackierungen_Lackierungen_LackierungRefId",
+                        column: x => x.LackierungRefId,
                         principalTable: "Lackierungen",
                         principalColumn: "LackierungId",
                         onDelete: ReferentialAction.Cascade);
@@ -232,21 +232,21 @@ namespace AutoConfiguratorApp.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
-                    AutoModellId = table.Column<int>(nullable: false),
-                    MotorId = table.Column<int>(nullable: false)
+                    AutoModellRefId = table.Column<int>(nullable: false),
+                    MotorRefId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AutoModelle_Motoren", x => x.AutoModell_MotorId);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Motoren_AutoModellen_AutoModellId",
-                        column: x => x.AutoModellId,
+                        name: "FK_AutoModelle_Motoren_AutoModellen_AutoModellRefId",
+                        column: x => x.AutoModellRefId,
                         principalTable: "AutoModellen",
                         principalColumn: "AutoModellId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutoModelle_Motoren_Motoren_MotorId",
-                        column: x => x.MotorId,
+                        name: "FK_AutoModelle_Motoren_Motoren_MotorRefId",
+                        column: x => x.MotorRefId,
                         principalTable: "Motoren",
                         principalColumn: "MotorId",
                         onDelete: ReferentialAction.Cascade);
@@ -260,66 +260,66 @@ namespace AutoConfiguratorApp.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     ModifiedDate = table.Column<DateTime>(nullable: false),
-                    IdRef_AM_F = table.Column<int>(nullable: false),
-                    IdRef_AM_L = table.Column<int>(nullable: false),
-                    IdRef_AM_M = table.Column<int>(nullable: false),
-                    IdRefFSS = table.Column<int>(nullable: true),
-                    IdRefKA = table.Column<int>(nullable: true),
-                    IdRefNS = table.Column<int>(nullable: true),
-                    IdRefPAS = table.Column<int>(nullable: true),
-                    IdRefSS = table.Column<int>(nullable: true)
+                    AM_F_RefId = table.Column<int>(nullable: false),
+                    AM_L_RefId = table.Column<int>(nullable: false),
+                    AM_M_RefId = table.Column<int>(nullable: false),
+                    FSS_RefId = table.Column<int>(nullable: true),
+                    KA_RefId = table.Column<int>(nullable: true),
+                    NS_RefId = table.Column<int>(nullable: true),
+                    PAS_RefId = table.Column<int>(nullable: true),
+                    SS_RefId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AutoKonfigurationen", x => x.AutoKonfigurationId);
                     table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_FahrSicherheitsSysteme_IdRefFSS",
-                        column: x => x.IdRefFSS,
-                        principalTable: "FahrSicherheitsSysteme",
-                        principalColumn: "FahrSicherheitsSystemId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_KlimaAnlagen_IdRefKA",
-                        column: x => x.IdRefKA,
-                        principalTable: "KlimaAnlagen",
-                        principalColumn: "KlimaAnlageId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_NavigationsSysteme_IdRefNS",
-                        column: x => x.IdRefNS,
-                        principalTable: "NavigationsSysteme",
-                        principalColumn: "NavigationsSystemId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_ParkAssistentSysteme_IdRefPAS",
-                        column: x => x.IdRefPAS,
-                        principalTable: "ParkAssistentSysteme",
-                        principalColumn: "ParkAssistentSystemId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_SoundSysteme_IdRefSS",
-                        column: x => x.IdRefSS,
-                        principalTable: "SoundSysteme",
-                        principalColumn: "SoundSystemId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_AutoModelle_Felgen_IdRef_AM_F",
-                        column: x => x.IdRef_AM_F,
+                        name: "FK_AutoKonfigurationen_AutoModelle_Felgen_AM_F_RefId",
+                        column: x => x.AM_F_RefId,
                         principalTable: "AutoModelle_Felgen",
                         principalColumn: "AutoModell_FelgeId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_AutoModelle_Lackierungen_IdRef_AM_L",
-                        column: x => x.IdRef_AM_L,
+                        name: "FK_AutoKonfigurationen_AutoModelle_Lackierungen_AM_L_RefId",
+                        column: x => x.AM_L_RefId,
                         principalTable: "AutoModelle_Lackierungen",
                         principalColumn: "AutoModell_LackierungId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutoKonfigurationen_AutoModelle_Motoren_IdRef_AM_M",
-                        column: x => x.IdRef_AM_M,
+                        name: "FK_AutoKonfigurationen_AutoModelle_Motoren_AM_M_RefId",
+                        column: x => x.AM_M_RefId,
                         principalTable: "AutoModelle_Motoren",
                         principalColumn: "AutoModell_MotorId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AutoKonfigurationen_FahrSicherheitsSysteme_FSS_RefId",
+                        column: x => x.FSS_RefId,
+                        principalTable: "FahrSicherheitsSysteme",
+                        principalColumn: "FahrSicherheitsSystemId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AutoKonfigurationen_KlimaAnlagen_KA_RefId",
+                        column: x => x.KA_RefId,
+                        principalTable: "KlimaAnlagen",
+                        principalColumn: "KlimaAnlageId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AutoKonfigurationen_NavigationsSysteme_NS_RefId",
+                        column: x => x.NS_RefId,
+                        principalTable: "NavigationsSysteme",
+                        principalColumn: "NavigationsSystemId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AutoKonfigurationen_ParkAssistentSysteme_PAS_RefId",
+                        column: x => x.PAS_RefId,
+                        principalTable: "ParkAssistentSysteme",
+                        principalColumn: "ParkAssistentSystemId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_AutoKonfigurationen_SoundSysteme_SS_RefId",
+                        column: x => x.SS_RefId,
+                        principalTable: "SoundSysteme",
+                        principalColumn: "SoundSystemId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -341,114 +341,127 @@ namespace AutoConfiguratorApp.Migrations
                 {
                     { 100, "LandRover" },
                     { 101, "Porsche" },
-                    { 102, "AUDI" },
-                    { 103, "MercedesBenz" },
-                    { 104, "BMW" },
-                    { 105, "VW" }
+                    { 102, "Tesla" },
+                    { 103, "AUDI" },
+                    { 104, "MercedesBenz" },
+                    { 105, "BMW" },
+                    { 106, "VW" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AutoModellen",
-                columns: new[] { "AutoModellId", "HerstellerRefId", "ModelName" },
+                columns: new[] { "AutoModellId", "Hersteller_RefId", "ModelName" },
                 values: new object[,]
                 {
                     { 200, 100, "RangeRover" },
-                    { 201, 100, "RangeRover Sport" },
-                    { 202, 100, "RangeRover Velar" },
-                    { 203, 101, "911" },
-                    { 204, 101, "Cayenne" },
+                    { 215, 105, "8er" },
+                    { 214, 104, "G-Klasse" },
+                    { 213, 104, "GLE" },
+                    { 212, 104, "AMG GT" },
+                    { 211, 103, "RS7" },
+                    { 210, 103, "R8" },
+                    { 209, 103, "RSQ8" },
+                    { 208, 102, "Model 3" },
+                    { 207, 102, "Model S" },
+                    { 206, 102, "Model X" },
                     { 205, 101, "Macan" },
-                    { 206, 102, "RSQ8" },
-                    { 207, 102, "R8" },
-                    { 208, 102, "RS7" },
-                    { 209, 103, "AMG GT" },
-                    { 210, 103, "GLE" },
-                    { 211, 103, "G-Klasse" },
-                    { 212, 104, "8er" },
-                    { 213, 104, "X6" },
-                    { 214, 104, "7er" }
+                    { 204, 101, "Cayenne" },
+                    { 203, 101, "911" },
+                    { 202, 100, "RangeRover Velar" },
+                    { 201, 100, "RangeRover Sport" },
+                    { 216, 105, "X6" },
+                    { 217, 105, "7er" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRefFSS",
+                name: "IX_AutoKonfigurationen_AM_F_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRefFSS");
+                column: "AM_F_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRefKA",
+                name: "IX_AutoKonfigurationen_AM_L_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRefKA");
+                column: "AM_L_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRefNS",
+                name: "IX_AutoKonfigurationen_AM_M_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRefNS");
+                column: "AM_M_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRefPAS",
+                name: "IX_AutoKonfigurationen_FSS_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRefPAS");
+                column: "FSS_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRefSS",
+                name: "IX_AutoKonfigurationen_KA_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRefSS");
+                column: "KA_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRef_AM_F",
+                name: "IX_AutoKonfigurationen_NS_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRef_AM_F");
+                column: "NS_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRef_AM_L",
+                name: "IX_AutoKonfigurationen_PAS_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRef_AM_L");
+                column: "PAS_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoKonfigurationen_IdRef_AM_M",
+                name: "IX_AutoKonfigurationen_SS_RefId",
                 table: "AutoKonfigurationen",
-                column: "IdRef_AM_M");
+                column: "SS_RefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Felgen_AutoModellId",
+                name: "IX_AutoModelle_Felgen_AutoModellRefId",
                 table: "AutoModelle_Felgen",
-                column: "AutoModellId");
+                column: "AutoModellRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Felgen_FelgeId",
+                name: "IX_AutoModelle_Felgen_FelgeRefId",
                 table: "AutoModelle_Felgen",
-                column: "FelgeId");
+                column: "FelgeRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Lackierungen_AutoModellId",
+                name: "IX_AutoModelle_Lackierungen_AutoModellRefId",
                 table: "AutoModelle_Lackierungen",
-                column: "AutoModellId");
+                column: "AutoModellRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Lackierungen_LackierungId",
+                name: "IX_AutoModelle_Lackierungen_LackierungRefId",
                 table: "AutoModelle_Lackierungen",
-                column: "LackierungId");
+                column: "LackierungRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Motoren_AutoModellId",
+                name: "IX_AutoModelle_Motoren_AutoModellRefId",
                 table: "AutoModelle_Motoren",
-                column: "AutoModellId");
+                column: "AutoModellRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModelle_Motoren_MotorId",
+                name: "IX_AutoModelle_Motoren_MotorRefId",
                 table: "AutoModelle_Motoren",
-                column: "MotorId");
+                column: "MotorRefId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutoModellen_HerstellerRefId",
+                name: "IX_AutoModellen_Hersteller_RefId",
                 table: "AutoModellen",
-                column: "HerstellerRefId");
+                column: "Hersteller_RefId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "AutoKonfigurationen");
+
+            migrationBuilder.DropTable(
+                name: "AutoModelle_Felgen");
+
+            migrationBuilder.DropTable(
+                name: "AutoModelle_Lackierungen");
+
+            migrationBuilder.DropTable(
+                name: "AutoModelle_Motoren");
 
             migrationBuilder.DropTable(
                 name: "FahrSicherheitsSysteme");
@@ -464,15 +477,6 @@ namespace AutoConfiguratorApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "SoundSysteme");
-
-            migrationBuilder.DropTable(
-                name: "AutoModelle_Felgen");
-
-            migrationBuilder.DropTable(
-                name: "AutoModelle_Lackierungen");
-
-            migrationBuilder.DropTable(
-                name: "AutoModelle_Motoren");
 
             migrationBuilder.DropTable(
                 name: "Felgen");

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AutoConfiguratorApp.Models.Auto
 {
@@ -10,11 +11,13 @@ namespace AutoConfiguratorApp.Models.Auto
         public int AutoModell_MotorId { get; set; }
 
         [Required]
-        public int AutoModellId { get; set; }
+        [ForeignKey("AutoModell")]
+        public int AutoModellRefId { get; set; }
         public AutoModell AutoModell { get; set; }
 
         [Required]
-        public int MotorId { get; set; }
+        [ForeignKey("Motor")]
+        public int MotorRefId { get; set; }
         public Motor Motor { get; set; }
     }
 }

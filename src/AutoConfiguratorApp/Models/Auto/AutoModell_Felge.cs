@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AutoConfiguratorApp.Models.Auto
 {
@@ -9,11 +10,13 @@ namespace AutoConfiguratorApp.Models.Auto
         public int AutoModell_FelgeId { get; set; }
 
         [Required]
-        public int AutoModellId { get; set; }
+        [ForeignKey("AutoModell")]
+        public int AutoModellRefId { get; set; }
         public AutoModell AutoModell { get; set; }
 
         [Required]
-        public int FelgeId { get; set; }
+        [ForeignKey("Felge")]
+        public int FelgeRefId { get; set; }
         public Felge Felge { get; set; }
     }
 }
