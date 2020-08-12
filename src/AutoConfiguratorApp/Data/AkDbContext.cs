@@ -2,24 +2,30 @@
 using AutoConfiguratorApp.Models;
 using AutoConfiguratorApp.Models.Auto;
 using AutoConfiguratorApp.Models.SonderAusstattungen;
+//using AutoMapper.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.Extensions.Configuration;
 
 namespace AutoConfiguratorApp.Data
 
 {
-    public class AkDbContext : DbContext
+    public partial class AkDbContext : DbContext
     {
-        public AkDbContext(DbContextOptions<AkDbContext> options) : base(options)
+        private readonly IConfiguration _config;
+        public AkDbContext(DbContextOptions<AkDbContext> options, IConfiguration config) : base(options)
         {
-
+            _config = config;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder
-                .UseNpgsql("Host=localhost;Port=5432;Database=AutoConfDB;Username=postgres;Password=!Kbn1988;Pooling=true;")
-                .ReplaceService<IMigrationsSqlGenerator , CustomNpgsqlMigrationsSqlGenerator>();
+            //if (!optionsBuilder.IsConfigured)
+            //{
+                optionsBuilder
+                    .UseNpgsql(_config.GetConnectionString("PostgreSqlConnection"))
+                    .ReplaceService<IMigrationsSqlGenerator, CustomNpgsqlMigrationsSqlGenerator>();
+            //}
         }
         public DbSet<Hersteller> Hersteller { get; set; }
         public DbSet<AutoModell> AutoModellen { get; set; }

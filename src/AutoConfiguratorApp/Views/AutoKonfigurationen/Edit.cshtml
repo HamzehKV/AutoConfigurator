@@ -1,0 +1,74 @@
+﻿@model AutoConfiguratorApp.Models.AutoKonfiguration
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AutoKonfiguration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AutoKonfigurationId" />
+            <div class="form-group">
+                <label asp-for="AM_F_RefId" class="control-label"></label>
+                <select asp-for="AM_F_RefId" class="form-control" asp-items="ViewBag.AM_F_RefId"></select>
+                <span asp-validation-for="AM_F_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AM_L_RefId" class="control-label"></label>
+                <select asp-for="AM_L_RefId" class="form-control" asp-items="ViewBag.AM_L_RefId"></select>
+                <span asp-validation-for="AM_L_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AM_M_RefId" class="control-label"></label>
+                <select asp-for="AM_M_RefId" class="form-control" asp-items="ViewBag.AM_M_RefId"></select>
+                <span asp-validation-for="AM_M_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FSS_RefId" class="control-label"></label>
+                <select asp-for="FSS_RefId" class="form-control" asp-items="ViewBag.FSS_RefId"></select>
+                <span asp-validation-for="FSS_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KA_RefId" class="control-label"></label>
+                <select asp-for="KA_RefId" class="form-control" asp-items="ViewBag.KA_RefId"></select>
+                <span asp-validation-for="KA_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NS_RefId" class="control-label"></label>
+                <select asp-for="NS_RefId" class="form-control" asp-items="ViewBag.NS_RefId"></select>
+                <span asp-validation-for="NS_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAS_RefId" class="control-label"></label>
+                <select asp-for="PAS_RefId" class="form-control" asp-items="ViewBag.PAS_RefId"></select>
+                <span asp-validation-for="PAS_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SS_RefId" class="control-label"></label>
+                <select asp-for="SS_RefId" class="form-control" asp-items="ViewBag.SS_RefId"></select>
+                <span asp-validation-for="SS_RefId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

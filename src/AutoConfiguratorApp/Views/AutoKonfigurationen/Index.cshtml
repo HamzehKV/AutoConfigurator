@@ -1,0 +1,89 @@
+﻿@model IEnumerable<AutoConfiguratorApp.Models.AutoKonfiguration>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoModell_Felge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoModell_Lackierung)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutoModell_Motor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FahrSicherheitsSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KlimaAnlage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NavigationsSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkAssistentSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoundSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoModell_Felge.AutoModell_FelgeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoModell_Lackierung.AutoModell_LackierungId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutoModell_Motor.AutoModell_MotorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FahrSicherheitsSystem.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KlimaAnlage.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NavigationsSystem.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkAssistentSystem.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoundSystem.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AutoKonfigurationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AutoKonfigurationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AutoKonfigurationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

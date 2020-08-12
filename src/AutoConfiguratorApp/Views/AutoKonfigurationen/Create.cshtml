@@ -1,0 +1,60 @@
+﻿@model AutoConfiguratorApp.Models.AutoKonfiguration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AutoKonfiguration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AM_F_RefId" class="control-label"></label>
+                <select asp-for="AM_F_RefId" class ="form-control" asp-items="ViewBag.AM_F_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AM_L_RefId" class="control-label"></label>
+                <select asp-for="AM_L_RefId" class ="form-control" asp-items="ViewBag.AM_L_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AM_M_RefId" class="control-label"></label>
+                <select asp-for="AM_M_RefId" class ="form-control" asp-items="ViewBag.AM_M_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FSS_RefId" class="control-label"></label>
+                <select asp-for="FSS_RefId" class ="form-control" asp-items="ViewBag.FSS_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="KA_RefId" class="control-label"></label>
+                <select asp-for="KA_RefId" class ="form-control" asp-items="ViewBag.KA_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="NS_RefId" class="control-label"></label>
+                <select asp-for="NS_RefId" class ="form-control" asp-items="ViewBag.NS_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAS_RefId" class="control-label"></label>
+                <select asp-for="PAS_RefId" class ="form-control" asp-items="ViewBag.PAS_RefId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SS_RefId" class="control-label"></label>
+                <select asp-for="SS_RefId" class ="form-control" asp-items="ViewBag.SS_RefId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

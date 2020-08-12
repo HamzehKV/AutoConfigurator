@@ -7,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using Npgsql;
 using System;
 
 namespace AutoConfiguratorApp
@@ -25,16 +24,17 @@ namespace AutoConfiguratorApp
         {
             services.AddControllersWithViews();
 
-            var builder = new NpgsqlConnectionStringBuilder
-            {
-                ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection"),
-                Username = Configuration["postgres"],
-                Password = Configuration["!Kbn1988"]
-            };
+            //var builder = new NpgsqlConnectionStringBuilder
+            //{
+            //    ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection"),
+            //    Username = Configuration["Username"],
+            //    Password = Configuration["Password"]
+            //};
 
-
-            //services.AddDbContext<AkDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("AkDbContext")));
-            services.AddDbContext<AkDbContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+            services.AddDbContext<AkDbContext>(options =>
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("PostgreSqlConnection")
+             ));
 
             //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             //{
@@ -70,7 +70,7 @@ namespace AutoConfiguratorApp
             app.UseRouting();
 
             //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
